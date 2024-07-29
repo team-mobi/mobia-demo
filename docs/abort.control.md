@@ -12,10 +12,14 @@ race with timeout은 요청에 대한 지연을 위해 사용합니다. 특정 �
 1. 지연으로 인한 대기열/로딩화면을 보여주어야할 때
 
 // 요청이 성공할 때 까지 로딩화면을 보여주거 서버의 server sent event를 통해 실시간으로 남아있는 큐의 개수를 통해 대기열의 감소를 보여주어야합니다.
+```
 
+```typescript
 2. 특정 시간이 지나면 다른 callback request를 요청해야할 때
 
-// 본 프로젝트에서는 raceWithTimeout 함수를 제공합니다. 만약 요청이 실패하였다면 해당 함수를 통해 기존 요청을 abort control하고 다른 callback으로 요청을 재시도 할 수 있습니다.
+// 본 프로젝트에서는 raceWithTimeout 함수를 제공합니다.
+
+//만약 요청이 실패하였다면 해당 함수를 통해 기존 요청을 abort control하고 다른 callback으로 요청을 재시도 할 수 있습니다.
 
 // 단, 단순한 reject가 아닌 요청 자체의 취소를 위해 반드시 Abort Control instance와 함께 사용해야합니다.
 
@@ -32,8 +36,9 @@ export const raceWithTimeout = <T>(
   });
   return Promise.race<T>([timeout, promise]);
 };
+```
 
-
+```typescript
 3. 일시적 서버의 부하로 요청을 취소하고 retry해야할 때
 
 // Exponential Backoff를 통해 시스템 로드와 실패 가능성을 줄이기 위해 각 재시도 후 대기 시간을 두 배로 늘려야합니다
@@ -54,7 +59,6 @@ const queryClient = new QueryClient({
     },
   },
 })
-
 ```
 
 ## React query AbortSignal
