@@ -36,8 +36,6 @@ const ThrowTaggedError = () => {
   }
 ```
 
-````
-
 ### 2. ErrorBoundary
 
 상위 처리문으로 던져진 `exception`은 컴포넌트 레이어에서 처리가 불가능하면 [ErrorBoundary](/src/shared//core/error/error-boundary.tsx)에 도달합니다.
@@ -68,7 +66,7 @@ const ErrorFallback: React.FC<ErrorFallbackProps> = ({
 
   throw error;
 };
-````
+```
 
 ### 3. RootRouteError
 
