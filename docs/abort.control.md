@@ -74,7 +74,7 @@ const queryClient = new QueryClient({
 
 <br>
 
-따라서 만약 queryFn의 axios에서 abort Control을 한다고 하더라도 실제 query 요청은 취소되지 않습니다. 그러나, 요청의 시간이 충분히 지연될 수 있는 상황이라면 `서버 측 리소스의 감소`를 위해 우리는 이러한 상황에서도 abort control 해야할 수 있으며 react query에서는 이를 위해 queryFn의 인자로 `signal`을 전달합니다.
+따라서 만약 queryFn의 axios에서 abort Control을 한다고 하더라도 실제 query 요청은 취소되지 않습니다. 그러나, 요청의 시간이 충분히 지연될 수 있는 상황이라면 `리소스 감소`를 위해 우리는 이러한 상황에서도 abort control 해야할 수 있으며 react query에서는 이를 위해 queryFn의 인자로 `signal`을 전달합니다.
 
 ```javascript
 export const useFetchPostList = () => {
